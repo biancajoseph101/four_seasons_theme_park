@@ -29,10 +29,7 @@ function SubmitReview(props) {
         setNewReview(newestReview)
         console.log(newestReview)
     }
-    const getId = () => {
-        console.log(props.match.params.rideId)
-    }
-    getId()
+    
     return (
         <div>
             <h1>Add A Review</h1>

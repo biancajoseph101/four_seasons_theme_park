@@ -22,9 +22,6 @@ export default function RideDetails(props) {
   useEffect(() => {
     getRide();
     getReviews();
-    // to auto display the new review, add the getReviews function content here:
-    // const res = await axios.get(`http://localhost:3001/api/reviews`);
-    // setReviews(res.data.reviews);
   }, []);
 
   return selectedRide ? (

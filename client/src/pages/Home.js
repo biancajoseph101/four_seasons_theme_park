@@ -17,7 +17,7 @@ export default function Home(props) {
   return (
     <div>
       <h1>4 Seasons Amusement Park</h1>
-      <section className="rideCards-container">
+      <section className="rides-Section">
         {rides.map((ride) => {
           {
             return (

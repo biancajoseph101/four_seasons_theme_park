@@ -1,51 +1,60 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import BASE_URL from '../globals'
+import axios from "axios"
 
-function ReviewForm(props) {
-    const handleSubmit = (e) => {
-        props.addReview(e);
-    };
-
-    const [reviews, setReviews] = useState([]);
-    const [newReview, setNewReview] = useState([])
-
-    // useEffect(() => {
-    //     getReviews();
-    // }, []);
-    // const getReviews = async () => {
-    //     const res = await axios.get(`http://localhost:3001/api/reviews`);
-    //     setReviews(res.data.reviews);
-    //     console.log(res.data.reviews);
-    //     console.log(res.data.reviews[1]);
-    // }
-
-    const newReviewFunction = () => {
-        let currentReviews = reviews;
-        let postReview = newReview
-        currentReviews.push(postReview)
-        setReviews(currentReviews)
-        axios.post(`${BASE_URL}/reviews`, postReview)
+function SubmitReview(props) {
+    const [newReview, setNewReview] = useState({
+        name:``,
+        comments:``,
+        ratings:``
+    })
+    const submit = (e) => {
+        e.preventDefault();
+        axios.post(`http://localhost:3001/api/reviews`, {
+            name: newReview.name,
+            comments: newReview.comments,
+            ratings: newReview.ratings
+        })
+        let anotherReview = {
+            name:``,
+            comments:``,
+            ratings:``
+        }
+        setNewReview(anotherReview)
+    }
+    const handle = (e) => {
+        const newestReview = { ...newReview }
+        newestReview[e.target.id] = e.target.value
+        setNewReview(newestReview)
+        console.log(newestReview)
     }
     return (
         <div>
             <h1>Add A Review</h1>
-            <form onSubmit={handleSubmit}>
-                <input
+            <form onSubmit={(e) => submit(e)}>
+                Name: <input type='text'
                     name='name'
-
+                    value={newReview.name}
+                    onChange={(e) => handle(e)}
+                    type='text'
+                    id='name'
                 />
-                <input
+                Comment: <input type='text'
                     name='comments'
+                    value={newReview.comments}
+                    onChange={(e) => handle(e)}
+                    type='text'
+                    id='comments'
                 />
-                <input
+                Rating from 1-5: <input type='text'
                     name='ratings'
+                    value={newReview.ratings}
+                    onChange={(e) => handle(e)}
+                    type='number'
+                    id='ratings'
                 />
                 <button>Submit</button>
             </form>
         </div>
-
     );
 }
-
-export default ReviewForm;
+export default SubmitReview;

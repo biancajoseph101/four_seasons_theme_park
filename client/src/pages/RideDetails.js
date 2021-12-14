@@ -25,8 +25,18 @@ export default function RideDetails(props) {
         <img src={selectedRide.url} />
         <p>{selectedRide.description}</p>
       </section>
-      {/* <SubmitReview />
-      <ReviewCard /> */}
+      <SubmitReview />
+      {/* {selectedRide.reviews.map((review)=> {
+        {
+          return (
+            <ReviewCard
+              name={review.name}
+              comments={review.comments}
+              ratings={review.ratings}
+            />
+          );
+        }
+      })} */}
     </div>
   ) : null;
 }

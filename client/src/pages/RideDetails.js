@@ -16,13 +16,15 @@ export default function RideDetails(props) {
 
   const getReviews = async () => {
     const res = await axios.get(`http://localhost:3001/api/reviews`);
-    console.log(res.data.reviews);
     setReviews(res.data.reviews);
   };
 
   useEffect(() => {
     getRide();
     getReviews();
+    // to auto display the new review, add the getReviews function content here:
+    // const res = await axios.get(`http://localhost:3001/api/reviews`);
+    // setReviews(res.data.reviews);
   }, []);
 
   return selectedRide ? (
@@ -32,9 +34,9 @@ export default function RideDetails(props) {
         <img src={selectedRide.url} />
         <p>{selectedRide.description}</p>
       </section>
-      <SubmitReview />
+      <SubmitReview {...props} />
       {reviews.map((review) => {
-        {
+        if (review.ride_id === props.match.params.rideId) {
           return (
             <ReviewCard
               name={review.name}
@@ -42,6 +44,8 @@ export default function RideDetails(props) {
               ratings={review.ratings}
             />
           );
+        } else {
+          console.log('review doesnt match this ride');
         }
       })}
     </div>

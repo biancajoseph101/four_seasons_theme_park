@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function RideDetails(props) {
+export default function RideCard(props) {
   return (
     <div className='ride-card' onClick={props.onClick}>
       <section className="ride-info">

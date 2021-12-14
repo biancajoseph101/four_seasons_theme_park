@@ -5,14 +5,16 @@ function SubmitReview(props) {
     const [newReview, setNewReview] = useState({
         name:``,
         comments:``,
-        ratings:``
+        ratings:``,
+        ride_id: props.match.params.rideId
     })
     const submit = (e) => {
         e.preventDefault();
         axios.post(`http://localhost:3001/api/reviews`, {
             name: newReview.name,
             comments: newReview.comments,
-            ratings: newReview.ratings
+            ratings: newReview.ratings,
+            ride_id: newReview.ride_id
         })
         let anotherReview = {
             name:``,
@@ -27,6 +29,10 @@ function SubmitReview(props) {
         setNewReview(newestReview)
         console.log(newestReview)
     }
+    const getId = () => {
+        console.log(props.match.params.rideId)
+    }
+    getId()
     return (
         <div>
             <h1>Add A Review</h1>

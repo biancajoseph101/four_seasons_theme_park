@@ -3,7 +3,6 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import RideDetails from './pages/RideDetails';
-import SubmitReview from './components/SubmitReview';
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
           path="/rides/details/:rideId"
           render={(props) => <RideDetails {...props} />}
         />
-        {/* <Route path="/reviews" component={SubmitReview} /> */}
       </Switch>
     </div>
   );

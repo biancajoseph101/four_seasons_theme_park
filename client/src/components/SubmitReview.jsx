@@ -22,6 +22,7 @@ function SubmitReview(props) {
             ratings:``
         }
         setNewReview(anotherReview)
+        window.location.reload()
     }
     const handle = (e) => {
         const newestReview = { ...newReview }

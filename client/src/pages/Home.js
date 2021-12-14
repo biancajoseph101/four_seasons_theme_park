@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import RideDetails from '../pages/RideDetails';
+import RideCard from '../components/RideCard';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
-export default function Home() {
+export default function Home(props) {
+  let history = useHistory();
   const [rides, setRides] = useState([]);
 
   useEffect(() => {
@@ -11,22 +13,23 @@ export default function Home() {
   const getRides = async () => {
     const res = await axios.get(`http://localhost:3001/api/rides`);
     setRides(res.data.rides);
-    console.log(res.data.rides);
-    console.log(res.data.rides[1].url);
   };
   return (
     <div>
-      {rides.map((ride) => {
-        {
-          return (
-            <RideDetails
-              name={ride.name}
-              image={ride.url}
-              description={ride.description}
-            />
-          );
-        }
-      })}
+      <h1>4 Seasons Amusement Park</h1>
+      <section className="rides-Section">
+        {rides.map((ride) => {
+          {
+            return (
+              <RideCard
+                onClick={() => history.push(`/rides/details/${ride._id}`)}
+                name={ride.name}
+                image={ride.url}
+              />
+            );
+          }
+        })}
+      </section>
     </div>
   );
 }

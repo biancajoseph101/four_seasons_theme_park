@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios"
+import '../SubmitReview.css'
 
 function SubmitReview(props) {
     const [newReview, setNewReview] = useState({
@@ -32,30 +33,38 @@ function SubmitReview(props) {
     }
     
     return (
-        <div>
-            <h1>Add A Review</h1>
+        <div className="sub-rev">
+            <h1 className="form-title">Bagg on this ride!</h1>
             <form onSubmit={(e) => submit(e)}>
+                <section className="inputs">
+                <section className="input-cont">
                 Name: <input type='text'
                     name='name'
                     value={newReview.name}
                     onChange={(e) => handle(e)}
                     type='text'
                     id='name'
-                /> <br/>  <br/>
+                    />
+                </section>
+                <section className="input-cont">
                 Comment: <input type='text'
                     name='comments'
                     value={newReview.comments}
                     onChange={(e) => handle(e)}
                     type='text'
                     id='comments'
-                /> <br/> <br/>
+                />
+                </section>
+                <section className="input-cont">
                 Rating from 1-5: <input type='text'
                     name='ratings'
                     value={newReview.ratings}
                     onChange={(e) => handle(e)}
                     type='number'
                     id='ratings'
-                /><br/> <br/>
+                />
+                </section>
+                </section>
                 <button className = 'button'>Submit</button>
             </form>
         </div>

@@ -17,6 +17,10 @@
   font-size: 25px;
 }
 
+.rating {
+  padding: 0;
+}
+
 .comments {
   color: black;
 }

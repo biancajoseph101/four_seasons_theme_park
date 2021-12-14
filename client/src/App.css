@@ -45,7 +45,11 @@ body {
 }
 
 .navbar {
-  color: white;
+  background-color: #26a01be0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 5px;
+  padding-left: 5px;
   font-size: xx-large;
   text-align: end;
   display: flex;

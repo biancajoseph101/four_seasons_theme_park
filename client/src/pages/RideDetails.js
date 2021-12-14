@@ -5,17 +5,24 @@ import SubmitReview from '../components/SubmitReview';
 
 export default function RideDetails(props) {
   const [selectedRide, setSelectedRide] = useState(null);
+  const [reviews, setReviews] = useState([]);
 
   const getRide = async () => {
     const res = await axios.get(
       `http://localhost:3001/api/rides/details/${props.match.params.rideId}`
     );
-
     setSelectedRide(res.data.ride);
+  };
+
+  const getReviews = async () => {
+    const res = await axios.get(`http://localhost:3001/api/reviews`);
+    console.log(res.data.reviews);
+    setReviews(res.data.reviews);
   };
 
   useEffect(() => {
     getRide();
+    getReviews();
   }, []);
 
   return selectedRide ? (
@@ -26,7 +33,7 @@ export default function RideDetails(props) {
         <p>{selectedRide.description}</p>
       </section>
       <SubmitReview />
-      {/* {selectedRide.reviews.map((review)=> {
+      {reviews.map((review) => {
         {
           return (
             <ReviewCard
@@ -36,7 +43,7 @@ export default function RideDetails(props) {
             />
           );
         }
-      })} */}
+      })}
     </div>
   ) : null;
 }

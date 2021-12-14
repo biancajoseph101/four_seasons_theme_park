@@ -43,22 +43,22 @@ function SubmitReview(props) {
                     onChange={(e) => handle(e)}
                     type='text'
                     id='name'
-                />
+                /> <br/>  <br/>
                 Comment: <input type='text'
                     name='comments'
                     value={newReview.comments}
                     onChange={(e) => handle(e)}
                     type='text'
                     id='comments'
-                />
+                /> <br/> <br/>
                 Rating from 1-5: <input type='text'
                     name='ratings'
                     value={newReview.ratings}
                     onChange={(e) => handle(e)}
                     type='number'
                     id='ratings'
-                />
-                <button>Submit</button>
+                /><br/> <br/>
+                <button className = 'button'>Submit</button>
             </form>
         </div>
     );

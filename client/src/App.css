@@ -29,8 +29,8 @@ body {
   }
 }
 
-#button {
-  background-color: #f26d1a;
+.button {
+  background-color: #26a01b;
   border: 2px solid white;
   color: white;
   padding: 15px 32px;
@@ -39,8 +39,15 @@ body {
   display: inline-block;
   font-size: 20px;
 }
-#button:hover {
+.button:hover {
   background-color: darkslateblue;
-  transform: translateY(4px);
   text-shadow: 1px 1px 2px white;
+}
+
+.navbar {
+  color: white;
+  font-size: xx-large;
+  text-align: end;
+  display: flex;
+  justify-content: space-between;
 }

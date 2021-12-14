@@ -5,19 +5,6 @@ const Review = require('../models/review');
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 const main = async () => {
-  const review1 = await new Review({
-    name: 'Reviewer 1',
-    comments: 'This ride was great',
-    ratings: 3
-  });
-  review1.save();
-
-  const review2 = await new Review({
-    name: 'Reviewer 2',
-    comments: 'This was not good',
-    ratings: 1
-  });
-  review2.save();
 
   const rides = [
     {
@@ -26,8 +13,7 @@ const main = async () => {
       description:
         'Fly down the tracks and splash into the wave pools on this brand new family friendly water ride!',
       height_requirement: false,
-      intensity: 2,
-      reviews: review1._id
+      intensity: 2
     },
     {
       name: 'Dino Roller Coaster',
@@ -36,7 +22,6 @@ const main = async () => {
         'A dinosaur shaped roller coaster will bring you out the most fun adventure!',
       height_requirement: false,
       intensity: 2,
-      reviews: review1._id
     }
   ];
 

@@ -8,8 +8,7 @@ const Ride = new Schema(
     url: { type: String, required: true },
     description: {type: String, required: true},
     height_requirement: {type: Boolean, required: true},
-    intensity: {type: Number, required: true},
-    reviews: {type: Schema.Types.ObjectId, ref: 'reviews'}
+    intensity: {type: Number, required: true}
   },
   { timestamps: true }
 )

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import '../ReviewCard.css'
 
 export default function ReviewCard(props) {
   return (
     <div className='rev-card'>
-      <section className="ride-info">
-        <h1>{props.name}</h1>
-        <h2>{props.ratings}</h2>
-        <p>{props.comments}</p>
-
+      <section className='rev-rating'>
+        <h1 className='rating'>{props.ratings}</h1>
+      </section>
+      <section className="rev-info">
+        <h2 className='comments'>"{props.comments}"</h2>
+        <h4>-{props.name}</h4>
       </section>
     </div>
   )

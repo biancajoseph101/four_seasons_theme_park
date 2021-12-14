@@ -1,0 +1,51 @@
+.sub-rev {
+  background-color: white;
+  color: grey;
+  margin: 0 10vw;
+  border-radius: 10px;
+}
+
+.form-title {
+  color: white;
+  background-color: darkgrey;
+  border-radius: 10px 10px 0 0;
+  padding: 0.5vh;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 25vw;
+}
+
+.input-cont {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1vh;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  background-color: #26a01b;
+  border: 2px solid white;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+.button:hover {
+  background-color: darkslateblue;
+  text-shadow: 1px 1px 2px white;
+}

@@ -36,6 +36,7 @@ export default function RideDetails(props) {
         if (review.ride_id === props.match.params.rideId) {
           return (
             <ReviewCard
+              key={review._id}
               name={review.name}
               comments={review.comments}
               ratings={review.ratings}

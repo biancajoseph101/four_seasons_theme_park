@@ -18,10 +18,12 @@ export default function Home(props) {
     <div>
       <h1>Baggland Rides</h1>
       <section className="rides-Section">
+        <div className='grid'>
         {rides.map((ride) => {
           {
             return (
               <RideCard
+                key={ride._id}
                 onClick={() => history.push(`/rides/details/${ride._id}`)}
                 name={ride.name}
                 image={ride.url}
@@ -29,6 +31,7 @@ export default function Home(props) {
             );
           }
         })}
+        </div>
       </section>
     </div>
   );

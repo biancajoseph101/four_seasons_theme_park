@@ -10,4 +10,6 @@ router.get('/rides', controllers.getAllRides)
 
 router.get('/reviews', controllers.getAllReviews)
 
+router.post('/reviews', controllers.createReviews)
+
 module.exports = router;
